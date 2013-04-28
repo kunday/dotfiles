@@ -1,0 +1,59 @@
+[core]
+	excludesfile = /Users/arvind.kunday/.gitignore_global
+	pager = less -FXRS -x2
+[user]
+	name = Arvind Kunday
+	email = arvind.kunday@rea-group.com
+[alias]
+	st = status
+	di = diff
+	co = checkout
+	ci = commit --verbose
+	br = branch
+	sta = stash
+	llog = log --date=local
+	y = diff "@{yesterday}"
+	w = whatchanged
+	c = commit --verbose
+	st = status
+	dc = diff --cached
+	co = checkout
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	lgn = "!f() { git log --graph --pretty=format:'%Cred%H%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=relative $@ | git name-rev --stdin --name-only ; } ; f"
+	log1 = log --pretty=oneline --abbrev-commit --decorate
+	assume   = update-index --assume-unchanged
+	unassume   = update-index --no-assume-unchanged
+	flog = log --pretty=fuller --decorate
+	lol = log --graph --decorate --oneline
+	lola = log --graph --decorate --oneline --all
+	blog = log origin/master... --left-right
+	ds = diff --staged
+	fixup = commit --fixup
+	squash = commit --squash
+	unstage = reset HEAD
+	rum = rebase
+	unpushed = diff origin/master..HEAD --name-status
+	noup = log --graph --decorate --pretty=oneline --abbrev-commit --all @{upstream}^..
+[apply]
+	whitespace = nowarn
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+	ui = auto
+[branch]
+	autosetupmerge = true
+[format]
+	pretty = format:%Cred%h%Creset - %Cgreen%an -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset
+	date = relative
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[rebase]
+	autosquash = true
+[push]
+	default = upstream
