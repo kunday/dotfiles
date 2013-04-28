@@ -28,7 +28,7 @@ class DotFile
 end
 
 Dir.foreach('.') do |file|
-  next if [".", "..", "README"].include?(file) || File.directory?(file)
+  next if [".", "..", "README.md"].include?(file) || File.directory?(file)
   file = DotFile.new file
   file.install
 end
