@@ -8,8 +8,7 @@ class DotFile
   end
 
   def file_exists?
-    puts file
-    p File.exist?(file)
+    File.exist?(file)
   end
 
   def backup_file
@@ -29,7 +28,7 @@ class DotFile
 end
 
 Dir.foreach('.') do |file|
-  next if file == "." || file == ".." || File.directory?(file)
+  next if [".", "..", "README"].include?(file) || File.directory?(file)
   file = DotFile.new file
   file.install
 end
